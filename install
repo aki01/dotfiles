@@ -1,11 +1,11 @@
 #!/bin/bash
 
-set -u
+git clone https://github.com/aki01/dotfiles.git .dotfiles
+cd ~/.dotfiles
 
-# 実行場所のディレクトリを取得
-THIS_DIR=$(cd $(dirname $0); pwd)
-
-cd $THIS_DIR
-
-echo "start setup..."
-make deploy
+if [ ! -e Makefile ]; then
+  echo "Error."
+else
+  echo "start setup..."
+  make deploy
+fi
