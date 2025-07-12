@@ -1,3 +1,24 @@
+# zplug
+source ~/.zplug/init.zsh
+
+# 構文のハイライト
+zplug "zsh-users/zsh-syntax-highlighting"
+
+# タイプ補完
+zplug "zsh-users/zsh-autosuggestions"
+zplug "zsh-users/zsh-completions"
+
+# Install plugins
+if ! zplug check --verbose; then
+  printf "Install? [y/n]: "
+  if read -q; then
+    echo; zplug install
+  fi
+fi
+
+# 読み込み
+zplug load
+
 # Ctrl+Dでログアウトしてしまうことを防ぐ
 setopt IGNOREEOF
 
